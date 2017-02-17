@@ -1,0 +1,27 @@
+{
+  "name": "audits",
+  "version": "0.0.15",
+  "description": "",
+  "main": "audits.js",
+  "dependencies": {
+    "http-helper-functions": "^0.0.83",
+    "permissions-helper-functions": "0.0.43",
+    "pg": "^6.0.3",
+    "pg-event-producer": "^0.0.36",
+    "response-helper-functions": "0.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/30x/audits.git"
+  },
+  "author": "Martin Nally",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/30x/audits/issues"
+  },
+  "homepage": "https://github.com/30x/audits#readme"
+}
