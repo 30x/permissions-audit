@@ -4,11 +4,11 @@
   "description": "",
   "main": "audits.js",
   "dependencies": {
-    "http-helper-functions": "^0.0.88",
-    "permissions-helper-functions": "0.0.44",
+    "http-helper-functions": "^0.0.89",
+    "permissions-helper-functions": "0.0.46",
     "pg": "^6.0.3",
     "pg-event-producer": "^0.0.36",
-    "response-helper-functions": "0.0.8"
+    "response-helper-functions": "0.0.9"
   },
   "devDependencies": {},
   "scripts": {
