@@ -11,7 +11,7 @@ var config = {
   database: process.env.PG_DATABASE
 }
 
-var pool = new Pool(config)
+var pool
 
 function withAuditEventsForScopeDo(res, scope, callback) {
   var query = `SELECT * FROM events WHERE data->'scopes' ? '${scope}'`
@@ -23,7 +23,8 @@ function withAuditEventsForScopeDo(res, scope, callback) {
   })
 }
 
-function init(callback) {
+function init(callback, aPool) {
+  pool = aPool || new Pool(config)
   var eventProducer = new pge.eventProducer(pool)
   eventProducer.createTablesThen(callback)
 }
