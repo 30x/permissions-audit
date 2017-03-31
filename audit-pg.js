@@ -14,8 +14,8 @@ var config = {
 var pool
 
 function withAuditEventsForScopeDo(res, scope, callback) {
-  var query = `SELECT * FROM events WHERE data->'scopes' ? '${scope}'`
-  pool.query(query, function (err, pg_res) {
+  var query = `SELECT * FROM events WHERE data->'scopes' ? $1`
+  pool.query(query, [scope], function (err, pg_res) {
     if (err)
       rLib.internalError(res, {msg: `database error: ${JSON.stringify(err)}`, err: err})
     else 
