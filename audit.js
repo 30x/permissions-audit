@@ -7,8 +7,6 @@ const pLib = require('permissions-helper-functions')
 const rLib = require('response-helper-functions')
 const querystring = require('querystring')
 
-const EVENTS = '/events/'
-
 function getAuditEventsForScope(req, res, scope) {
   var requestingUser = lib.getUser(req.headers.authorization)
   pLib.ifAllowedThen(lib.flowThroughHeaders(req), res, scope, '_self', 'read', function() {
@@ -25,7 +23,7 @@ function getAuditEventsForScope(req, res, scope) {
 
 function requestHandler(req, res) {
   var req_url = url.parse(req.url)
-  if (req_url.pathname == '/audit-events' && req_url.search)
+  if (req_url.pathname == '/az-audit-events' && req_url.search)
     if (req.method == 'GET') {
       var qs = req_url.search.substring(1)
       var scope = querystring.parse(qs).scope
@@ -58,7 +56,7 @@ function start() {
   else
     module.exports = {
       requestHandler:requestHandler,
-      paths: ['/audit-events'],
+      paths: ['/az-audit-events'],
       init: init
     }
 }

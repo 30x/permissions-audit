@@ -51,7 +51,7 @@ def main():
 
     org_url = 'http://apigee.com/o/acme'
     headers = {'Accept': 'application/json','Authorization': 'Bearer %s' % TOKEN1}
-    url = urljoin(BASE_URL, '/audit-events?scope=%s' % (org_url)) 
+    url = urljoin(BASE_URL, '/az-audit-events?scope=%s' % (org_url)) 
     r = requests.get(url, headers=headers)
     if r.status_code == 200:
         events = r.json()
@@ -64,7 +64,7 @@ def main():
 
     developers_url = org_url + '/developers'
     headers = {'Accept': 'application/json','Authorization': 'Bearer %s' % TOKEN1}
-    url = urljoin(BASE_URL, '/audit-events?scope=%s' % (developers_url)) 
+    url = urljoin(BASE_URL, '/az-audit-events?scope=%s' % (developers_url)) 
     r = requests.get(url, headers=headers)
     if r.status_code == 200:
         events = r.json()
