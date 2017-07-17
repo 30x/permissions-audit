@@ -3,7 +3,7 @@ const http = require('http')
 const url = require('url')
 const lib = require('http-helper-functions')
 const db = require('./audit-pg.js')
-const pLib = require('permissions-helper-functions')
+const pLib = require('@apigee/permissions-helper-functions')
 const rLib = require('response-helper-functions')
 const querystring = require('querystring')
 
@@ -61,14 +61,14 @@ function start() {
     }
 }
 
-if (process.env.INTERNAL_SY_ROUTER_HOST == 'kubernetes_host_ip') 
+if (process.env.INTERNAL_SY_ROUTER_HOST == 'kubernetes_host_ip')
   lib.getHostIPThen(function(err, hostIP){
-    if (err) 
+    if (err)
       process.exit(1)
     else {
       process.env.INTERNAL_SY_ROUTER_HOST = hostIP
       start()
     }
   })
-else 
+else
   start()
